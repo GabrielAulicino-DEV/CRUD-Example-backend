@@ -21,6 +21,7 @@ app.get('/', (req,res)=>{
 
 app.use(jwt({secret:constants.jwtSecret, algorithms: ['HS256']}).unless({path:["/user/create",'/user/login']}))
 
+
 app.post('/user/create', UserController.createControllerUser)
 app.post('/user/login', UserController.loginControllerUser)
 app.get('/user', UserController.getUserController)
